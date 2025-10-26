@@ -52,7 +52,8 @@ export function Lines({
                               }
                             }}
                           >
-                            {linePurchases[j].user.name}
+                            {linePurchases[j].user.name} (
+                            {linePurchases[j].user.phone})
                           </button>
                         </li>
                       );

@@ -66,23 +66,23 @@ export function ControlPanel({ isLoggedIn, logout, getToken }) {
 
   const onClickResetLinesHandler = async () => {
     const isResetConfirmed = window.confirm(
-      "Estás seguro de que quieres reiniciar las líneas?"
+      "Estás seguro de que quieres reiniciar los combos?"
     );
 
     if (!isResetConfirmed) return;
 
     const result = await resetLines();
     if (!result.success) {
-      alert("Un error ha ocurrido mientras se reiniciaban las líneas.");
+      alert("Un error ha ocurrido mientras se reiniciaban los combos.");
     } else {
-      alert("Las líneas han sido reseteadas correctamente.");
+      alert("Los combos han sido reseteados correctamente.");
     }
   };
 
   return (
     <>
       <section className="control-panel">
-        <h1>Panel de control</h1>
+        <h1>Panel de control - Bingo Tradicional</h1>
         <BingoInfo
           maxLinesPerUser={maxLinesPerUser}
           setMaxLinesPerUser={setMaxLinesPerUser}
@@ -127,8 +127,8 @@ export function ControlPanel({ isLoggedIn, logout, getToken }) {
             </span>
             <p>
               {selectedPurchases.length === 1
-                ? `Has seleccionado la línea ${selectedPurchases[0].line_id} y al usuario ${selectedPurchases[0].user.name}`
-                : `Has seleccionado los siguientes registros (linea, usuario): ${selectedPurchases.map(
+                ? `Has seleccionado el combo ${selectedPurchases[0].line_id} y al usuario ${selectedPurchases[0].user.name}`
+                : `Has seleccionado los siguientes registros (combo, usuario): ${selectedPurchases.map(
                     (s) => `(${s.line_id}, ${s.user.name})`
                   )}`}
             </p>
@@ -139,7 +139,7 @@ export function ControlPanel({ isLoggedIn, logout, getToken }) {
                     onClickChangeStateHandler("purchased");
                   }}
                 >
-                  Marcar como pagada
+                  Marcar como pagado/s
                 </button>
               </li>
               <li>
@@ -148,7 +148,7 @@ export function ControlPanel({ isLoggedIn, logout, getToken }) {
                     onClickChangeStateHandler("requested");
                   }}
                 >
-                  Marcar como reservada
+                  Marcar como reservado/s
                 </button>
               </li>
               <li>
@@ -157,7 +157,7 @@ export function ControlPanel({ isLoggedIn, logout, getToken }) {
                     onClickChangeStateHandler("available");
                   }}
                 >
-                  Anular compra
+                  Anular compra/s
                 </button>
               </li>
             </ul>
@@ -167,7 +167,7 @@ export function ControlPanel({ isLoggedIn, logout, getToken }) {
           className="lines-restart-button"
           onClick={onClickResetLinesHandler}
         >
-          Reiniciar líneas
+          Reiniciar combos
         </button>
         <button className="logout-button" onClick={onClickLogOutHandler}>
           Cerrar Sesion

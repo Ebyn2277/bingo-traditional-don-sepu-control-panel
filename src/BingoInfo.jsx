@@ -18,7 +18,7 @@ export function BingoInfo({
         <h2>Información del bingo</h2>
         <form className="bingo-form">
           <label>
-            Numero de lineas máximas por usuario:
+            Numero de combos máximos por usuario:
             <input
               type="number"
               value={maxLinesPerUser}
@@ -26,7 +26,7 @@ export function BingoInfo({
             />
           </label>
           <label>
-            Cantidad de líneas:
+            Cantidad de combos:
             <input
               type="number"
               value={maxPurchasesPerLine}
@@ -34,7 +34,7 @@ export function BingoInfo({
             />
           </label>
           <label>
-            Precio por línea:
+            Precio por combo:
             <input
               type="number"
               value={pricePerLine}
@@ -42,7 +42,7 @@ export function BingoInfo({
             />
           </label>
           <label>
-            Líneas totales:
+            Combos totales:
             <input
               type="number"
               value={totalLines}
